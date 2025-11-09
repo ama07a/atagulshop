@@ -1,52 +1,53 @@
-/* Tüm sayfa ölçeklendirmesi */
-html {
-    font-size: 16px; /* temel font-size */
+/* Tüm elemanları kutu modeline dahil et */
+*, *::before, *::after {
     box-sizing: border-box;
 }
 
-/* Box-sizing tüm elementlere uygula */
-*, *::before, *::after {
-    box-sizing: inherit;
-}
-
-/* Görsellerin ekran genişliğine göre uyum sağlaması */
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* Tüm containerları ekran genişliğine göre ölçeklendir */
+/* Sayfa ve container genişliği */
 .u-sheet, .u-section-1, header, footer {
-    width: 100%;
-    max-width: 1200px; /* opsiyonel, merkezi hizalama için */
-    margin-left: auto;
-    margin-right: auto;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
-/* Responsive yazılar */
+/* Görsellerin ekran genişliğine uyum sağlaması */
+img {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+}
+
+/* Yazıları ekran genişliğine göre ölçeklendir */
 .u-text, .u-text-1, .u-text-2, .u-text-3, h1, h2, h3, h4, h5, h6 {
-    font-size: clamp(12px, 1.5vw, 36px);
+    font-size: clamp(12px, 2vw, 36px) !important;
+    word-wrap: break-word;
 }
 
-/* Responsive butonlar */
+/* Butonları mobil uyumlu yap */
 .u-btn {
-    width: auto;
-    max-width: 90%;
-    font-size: clamp(12px, 1.2vw, 18px);
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: clamp(12px, 4vw, 18px) !important;
+    box-sizing: border-box;
 }
 
 /* Mobil ekranlar için özel ayarlar */
 @media (max-width: 768px) {
-    .u-sheet {
-        padding-left: 10px;
-        padding-right: 10px;
+    .u-sheet, .u-section-1 {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
     }
-
-    .u-btn {
-        width: 100%;
-    }
-
     .u-text-1, .u-text-2, .u-text-3 {
-        text-align: center;
+        text-align: center !important;
+    }
+    header img, .u-image {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+    a.u-btn {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
     }
 }
